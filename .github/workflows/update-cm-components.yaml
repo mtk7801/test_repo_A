@@ -27,7 +27,7 @@ jobs:
           echo "$COMPONENTS_YAML_CONTENT"
           echo ----
           echo "::set-env name=CMP_ID::${COMPONENT_ID}"
-          echo "::set-env name=CMPS_YAML_CONTENT::${COMPONENTS_YAML_CONTENT}"
+          echo '::set-env name=CMPS_YAML_CONTENT::"${COMPONENTS_YAML_CONTENT}"'
       - name: Print dir info 1
         run: |
           pwd
