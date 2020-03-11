@@ -28,7 +28,6 @@ jobs:
           echo ----
           echo "::set-env name=CMP_ID::${COMPONENT_ID}"
           echo "::set-env name=CMPS_YAML_CONTENT::${COMPONENTS_YAML_CONTENT}"
-          touch /volume_mount/test.txt
       - name: Print dir info 1
         run: |
           pwd
