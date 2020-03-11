@@ -1,0 +1,15 @@
+components:
+- componentId: about-service
+  componentType_not_in_model: Micro-Service
+  repository: about-service
+  owningTeam: qac
+  botSlackChannel: '#release-readiness'
+  discussionSlackChannel: '#release-readiness'
+  integrationPipeline_not_in_model: https://circleci.com/gh/qlik-trial/about-service
+  ApiGovPolicy: required
+  antivirusStatus: required
+  blackduckStatus: required
+  xrayStatus: required
+  production-approval: required
+  publishedPackageTypes:
+    - ivy
