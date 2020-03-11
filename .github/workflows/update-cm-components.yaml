@@ -22,12 +22,12 @@ jobs:
           #pip install yq
           #export COMPONENT_ID=$(cat components.yaml | yq .components | yq -r ".[0]".componentId)
           export COMPONENT_ID=testID
-          export COMPONENTS_YAML_CONTENT=$(cat components.yaml)
+          export COMPONENTS_YAML_CONTENT=$(cat components.yaml | tr -d '\n')
           echo ---
           echo "$COMPONENTS_YAML_CONTENT"
           echo ----
           echo "::set-env name=CMP_ID::${COMPONENT_ID}"
-          echo "::set-env name=CMPS_YAML_CONTENT::\"${COMPONENTS_YAML_CONTENT}\""
+          echo "::set-env name=CMPS_YAML_CONTENT::${COMPONENTS_YAML_CONTENT}"
       - name: Print dir info 1
         run: |
           pwd
@@ -39,7 +39,7 @@ jobs:
           group: qlik-trial
           repository: elastic-pipeline
           branch: update_components_for_${{ env.CMP_ID }}
-          command: 'echo ${{ env.CMP_ID }}; echo HEJ; echo "${{ env.CMPS_YAML_CONTENT }}"'
+          command: "echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}""
           commit_msg: "Updated components for ${{ env.CMP_ID }}"
           draft: false
           user: svc-pipeline
