@@ -12,10 +12,6 @@ jobs:
   my-job:
     name: Update CM components
     runs-on: ubuntu-latest
-    container:
-      image: alpine:latest
-      volumes:
-        - /my_docker_volume:/volume_mount
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -27,6 +23,9 @@ jobs:
           #export COMPONENT_ID=$(cat components.yaml | yq .components | yq -r ".[0]".componentId)
           export COMPONENT_ID=testID
           export COMPONENTS_YAML_CONTENT=$(cat components.yaml)
+          echo ---
+          echo $COMPONENTS_YAML_CONTENT
+          echo ----
           echo "::set-env name=CMP_ID::${COMPONENT_ID}"
           echo "::set-env name=CMPS_YAML_CONTENT::${COMPONENTS_YAML_CONTENT}"
           touch /volume_mount/test.txt
@@ -41,7 +40,7 @@ jobs:
           group: qlik-trial
           repository: elastic-pipeline
           branch: update_components_for_${{ env.CMP_ID }}
-          command: "echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}; ls /volume_mount"
+          command: "echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
           commit_msg: "Updated components for ${{ env.CMP_ID }}"
           draft: false
           user: svc-pipeline
