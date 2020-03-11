@@ -40,7 +40,7 @@ jobs:
           group: qlik-trial
           repository: elastic-pipeline
           branch: update_components_for_${{ env.CMP_ID }}
-          command: "pwd; ls -la /github/home; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
+          command: "pwd; ls -la /home; ls -la /github; ls -la /github/home; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
           commit_msg: "Updated components for ${{ env.CMP_ID }}"
           draft: false
           user: svc-pipeline
