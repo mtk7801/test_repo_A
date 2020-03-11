@@ -9,9 +9,6 @@ on:
     #  - "components.yaml"
 
 jobs:
-
-
-jobs:
   my-job:
     name: Update CM components
     runs-on: ubuntu-latest
