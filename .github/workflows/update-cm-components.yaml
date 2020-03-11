@@ -31,7 +31,7 @@ jobs:
         with:
           gh_token: ${{ secrets.SVC_PIPELINE_TOKEN }}
           group: qlik-trial
-          repository: cm
+          repository: elastic-pipeline
           branch: update_components_for_${{ env.CMP_ID }}
           command: "pwd; ls -la; echo ${{ env.CMP_ID }}"
           commit_msg: "Updated components for ${{ env.CMP_ID }}"
