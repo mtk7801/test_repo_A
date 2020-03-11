@@ -32,6 +32,7 @@ jobs:
         run: |
           pwd
           ls -la
+          ls -la /home
       - name: Update components yaml file in qlik-trial/cm
         uses: mtk7801/github_action_run_command_and_create_pr@master
         with:
@@ -39,7 +40,7 @@ jobs:
           group: qlik-trial
           repository: elastic-pipeline
           branch: update_components_for_${{ env.CMP_ID }}
-          command: "pwd; ls -la /home; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
+          command: "pwd; ls -la /github/home; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
           commit_msg: "Updated components for ${{ env.CMP_ID }}"
           draft: false
           user: svc-pipeline
