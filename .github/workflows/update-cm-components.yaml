@@ -24,7 +24,7 @@ jobs:
           export COMPONENT_ID=testID
           export COMPONENTS_YAML_CONTENT=$(cat components.yaml)
           echo ---
-          echo $COMPONENTS_YAML_CONTENT
+          echo "$COMPONENTS_YAML_CONTENT"
           echo ----
           echo "::set-env name=CMP_ID::${COMPONENT_ID}"
           echo "::set-env name=CMPS_YAML_CONTENT::${COMPONENTS_YAML_CONTENT}"
