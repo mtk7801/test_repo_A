@@ -41,7 +41,7 @@ jobs:
           group: qlik-trial
           repository: elastic-pipeline
           branch: update_components_for_${{ env.CMP_ID }}
-          command: "pwd; ls -la; ls -la /github/workspace; ls -la /github/workspace/tetris; cat /github/workspace/tetris/components.yaml; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
+          command: "pwd; ls -la; echo ONE; echo ${{ github.workspace }}; echo TWO; ls -la /github/workspace; ls -la /github/workspace/tetris; cat /github/workspace/tetris/components.yaml; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
           commit_msg: "Updated components for ${{ env.CMP_ID }}"
           draft: false
           user: svc-pipeline
