@@ -30,9 +30,9 @@ jobs:
         with:
           gh_token: ${{ secrets.SVC_PIPELINE_TOKEN }}
           group: qlik-trial
-          repository: cm
+          repository: elastic-pipeline
           branch: update_components_for_${{ env.CMP_ID }}
-          command: "echo github.workspace: ${{ github.workspace }}; echo GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}; pwd; ls -la; ls -la /github/workspace; ls -la /github/workspace/abc; cat /github/workspace/abc/components.yaml; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
+          command: "env | sort; echo github.workspace: ${{ github.workspace }}; echo GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}; pwd; ls -la; ls -la /github/workspace; ls -la /github/workspace/abc; cat /github/workspace/abc/components.yaml; echo ${{ env.CMP_ID }}; echo HEJ; echo ${{ env.CMPS_YAML_CONTENT }}"
           commit_msg: "Updated components for ${{ env.CMP_ID }}"
           draft: false
           user: svc-pipeline
