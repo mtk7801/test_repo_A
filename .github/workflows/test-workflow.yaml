@@ -1,0 +1,29 @@
+name: Test workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-event-info:
+    name: Print event info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print event info
+        run: |
+          echo GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}
+          echo GITHUB_EVENT_PATH: ${GITHUB_EVENT_PATH}
+          cat ${GITHUB_EVENT_PATH}
+  test-environment-variables:
+    runs-on: ubuntu-latest
+    name: Test environment variables
+    steps:
+      - name: Set env
+        run: |
+          export ALFA=alfa
+          echo ::set-env name=ALFA::${ALFA}
+          export BETA=beta
+          echo "BETA=${BETA}" >> $GITHUB_ENV
+      - name: Fetch env
+        run: |
+          echo "ALFA: ${ALFA}
+          echo "BETA: ${BETA}
