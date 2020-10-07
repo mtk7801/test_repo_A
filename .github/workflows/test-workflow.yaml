@@ -25,5 +25,5 @@ jobs:
           echo "BETA=${BETA}" >> $GITHUB_ENV
       - name: Fetch env
         run: |
-          echo "ALFA: ${ALFA}
-          echo "BETA: ${BETA}
+          echo "ALFA: ${ALFA}"
+          echo "BETA: ${BETA}"
